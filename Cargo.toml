@@ -11,8 +11,13 @@ members = ["ascii", "image", "manifest"]
 [workspace.dependencies]
 owo-colors = "3.5.0"
 anyhow = "1.0"
-clap = { version = "4.5.17", features = ["derive"] }
-image = "0.24.9"
+clap = { version = "4.5.21", features = ["derive"] }
+image = { version = "0.25.2", default-features = false, features = [
+    "color_quant",
+    "jpeg",
+    "png",
+    "webp"
+] }
 strum = { version = "0.26.3", features = ["derive"] }
 
 [package]
@@ -31,28 +36,28 @@ rust-version = "1.74.1"
 
 [dependencies]
 anyhow.workspace = true
-askalono = "0.4.6"
-byte-unit = "5.1.4"
+askalono = "0.5.0"
+byte-unit = "5.1.6"
 clap.workspace = true
-clap_complete = "4.5.26"
+clap_complete = "4.5.38"
 crossbeam-channel = "0.5.13"
-gix = { version = "0.66.0", default-features = false, features = [
+gix = { version = "0.68.0", default-features = false, features = [
     "max-performance-safe",
     "blob-diff",
     "mailmap",
     "index",
     "status",
 ] }
-gix-features = { version = "0.38.0", features = ["zlib-ng"] }
+gix-features = { version = "0.39.0", features = ["zlib-ng"] }
 globset = "0.4.15"
-human-panic = "2.0.1"
+human-panic = "2.0.2"
 image.workspace = true
 num-format = "0.4.4"
 onefetch-ascii = { path = "ascii", version = "2.19.0" }
 onefetch-image = { path = "image", version = "2.19.0" }
 onefetch-manifest = { path = "manifest", version = "2.19.0" }
 owo-colors.workspace = true
-regex = "1.11.0"
+regex = "1.11.1"
 serde = "1.0"
 serde_json = "1.0"
 serde_yaml = "0.9.34"
@@ -67,7 +72,7 @@ typetag = "0.2"
 [dev-dependencies]
 criterion = "0.5.1"
 gix-testtools = "0.15.0"
-insta = { version = "1.40.0", features = ["json", "redactions"] }
+insta = { version = "1.41.1", features = ["json", "redactions"] }
 rstest = "0.23.0"
 
 [[bench]]
